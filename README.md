@@ -1,4 +1,4 @@
-# Only for Visual Studio Code !
+# Only for Visual Studio Code on Windows !
 
 ## Activate Virtual Environment
 `venv/Scripts/Activate.ps1`
