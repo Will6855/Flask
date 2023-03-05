@@ -13,8 +13,9 @@ app.config['SECRET_KEY'] = 'password'
 @app.route('/')
 def index():
     conn = get_db_connection()
+    nbUsers = conn.execute('SELECT COUNT(*) FROM users').fetchone()
     conn.close()
-    return render_template('index.html')
+    return render_template('index.html', nbUsers=nbUsers)
 
 @app.route('/users')
 def users():
