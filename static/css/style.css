@@ -1,3 +1,10 @@
 #chart svg {
     height: 400px;
-  }
+    width: auto;
+}
+#chart {
+    border: solid;
+    border-radius: 20px;
+    display: inline-flex;
+    background-color: #bbdfff;
+}

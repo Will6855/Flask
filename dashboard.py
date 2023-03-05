@@ -8,7 +8,6 @@ def get_db_connection():
     return conn
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'password'
 
 @app.route('/')
 def index():
