@@ -2,10 +2,34 @@
 
 {% block content %}
     <h1>{% block title %} Users {% endblock %}</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Creation</th>
+            <th>Settings</th>
+          </tr>
+        </thead>
+
     {% for user in users %}
-        <h2>{{ user['username'] }}</h2>
-        <h2>{{ user['password'] }}</h2>
-        <span class="badge badge-primary">{{ user['created'] }}</span>
-        <hr>
+        <tbody>
+          <tr>
+            <th>{{ user['id'] }}</th>
+            <td>{{ user['username'] }}</td>
+            <td>{{ user['password'] }}</td>
+            <td>{{ user['created'] }}</td>
+            <td>
+                <a href="{{ url_for('edit', id=user['id']) }}">
+                    <span class="badge badge-warning">Edit</span>
+                </a>
+                <a href="{{ url_for('delete', id=user['id']) }}" onclick="return confirm('Are you sure you want to delete this user?')">
+                    <span class="badge badge-danger">Delete</span>
+                </a>
+            </td>
+          </tr>
+        </tbody>
     {% endfor %}
 {% endblock %}

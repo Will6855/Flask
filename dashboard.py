@@ -29,7 +29,7 @@ def createUser():
         username = request.form['username']
         password = request.form['password']
 
-        if not username or not password:
+        if not username and not password:
             flash('Username and password is required!')
         elif not username:
             flash('Username is required!')
@@ -41,5 +41,49 @@ def createUser():
                          (username , password))
             conn.commit()
             conn.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('users'))
     return render_template('createUser.html')
+
+def get_user(user_id):
+    conn = get_db_connection()
+    user = conn.execute('SELECT * FROM users WHERE id = ?',
+                        (user_id,)).fetchone()
+    conn.close()
+    if user is None:
+        abort(404)
+    return user
+
+@app.route('/<int:id>/edit', methods=('GET', 'POST'))
+def edit(id):
+    user = get_user(id)
+
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if not username and not password:
+            flash('Username and password is required!')
+        elif not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            conn = get_db_connection()
+            conn.execute('UPDATE users SET username = ?, password = ?'
+                         ' WHERE id = ?',
+                         (username, password, id))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('users'))
+
+    return render_template('editUser.html', user=user)
+
+@app.route('/<int:id>/delete', methods=('GET', 'POST',))
+def delete(id):
+    user = get_user(id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM users WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(user['username']))
+    return redirect(url_for('users'))
