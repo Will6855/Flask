@@ -1,9 +1,9 @@
 const ctx = document.getElementById('myChart');
 
 data = {
-    labels: ['Number of Users', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Number of Users'],
     datasets: [{
-      data: [nbUsers, 19, 3, 5, 2, 3],
+      data: [nbUsers],
       borderWidth: 1
     }]
   }
