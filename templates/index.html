@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block variable %} 
+
+    <!-- JavaScript Variable -->
+    <script>
+        var nbUsers = '{{ nbUsers[0] }}';
+    </script> 
+
+{% endblock %}
+
 {% block content %}
 
     <h1>{% block title %} Dashboard {% endblock %}</h1>
