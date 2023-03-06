@@ -2,9 +2,12 @@
     height: 400px;
     width: auto;
 }
-#chart {
+#card {
     border: solid;
     border-radius: 20px;
-    display: inline-flex;
     background-color: #bbdfff;
+}
+.container-fluid {
+    display: inline-flex;
+    gap: 5px;
 }

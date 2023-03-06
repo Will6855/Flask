@@ -4,7 +4,7 @@ nv.addGraph(function() {
         .y(function(d) { return d.value })
         .showLabels(true);
   
-      d3.select("#chart svg")
+      d3.select("#card svg")
           .datum(exampleData())
           .transition().duration(350)
           .call(chart);

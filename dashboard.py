@@ -87,3 +87,14 @@ def delete(id):
     conn.close()
     flash('"{}" was successfully deleted!'.format(user['username']))
     return redirect(url_for('users'))
+
+
+
+
+@app.route('/dashboard')
+def dashboard():
+    conn = get_db_connection()
+    nbUsers = conn.execute('SELECT COUNT(*) FROM users').fetchone()
+    users = conn.execute('SELECT * FROM users').fetchall()
+    conn.close()
+    return render_template('dashboard.html', nbUsers=nbUsers, users=users)

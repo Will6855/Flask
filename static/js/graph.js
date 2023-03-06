@@ -19,7 +19,7 @@ new Chart(ctx, {
       },
       title: {
         display: true,
-        text: 'Chart.js Pie Chart'
+        text: 'Pie Chart of Users'
       }
     }
   },
