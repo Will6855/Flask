@@ -4,7 +4,10 @@ data = {
     labels: ['Number of Users'],
     datasets: [{
       data: [nbUsers],
-      borderWidth: 1
+      borderWidth: 1,
+      backgroundColor: [
+        'rgb(255, 99, 132)'
+      ]
     }]
   }
 

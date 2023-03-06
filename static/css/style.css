@@ -11,3 +11,6 @@
     display: inline-flex;
     gap: 5px;
 }
+.table * {
+    text-align: center;
+}
