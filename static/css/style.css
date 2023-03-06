@@ -7,8 +7,7 @@
     border-radius: 20px;
     background-color: #bbdfff;
 }
-.container-fluid {
-    display: inline-flex;
+.container-fluid * {
     gap: 5px;
 }
 .table * {
