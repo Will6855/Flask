@@ -6,9 +6,13 @@
     border: solid;
     border-radius: 10px;
     background-color: #bbdfff;
+    overflow: hidden;
 }
 .container-fluid * {
     gap: 5px;
+}
+.container-fluid > .row {
+    margin-inline: 10px;
 }
 .table * {
     text-align: center;
